@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.97 0.008 80;
+    --foreground: 0.18 0.04 100;
+    --card: 0.99 0.004 80;
+    --card-foreground: 0.18 0.04 100;
+    --popover: 0.99 0.004 80;
+    --popover-foreground: 0.18 0.04 100;
+    --primary: 0.38 0.08 105;
+    --primary-foreground: 0.98 0.005 80;
+    --secondary: 0.93 0.02 80;
+    --secondary-foreground: 0.28 0.07 105;
+    --muted: 0.93 0.01 80;
+    --muted-foreground: 0.52 0.03 100;
+    --accent: 0.72 0.12 75;
+    --accent-foreground: 0.15 0.04 100;
+    --destructive: 0.55 0.18 25;
+    --destructive-foreground: 0.98 0.005 80;
+    --border: 0.88 0.02 100;
+    --input: 0.88 0.02 100;
+    --ring: 0.38 0.08 105;
+    --radius: 0.5rem;
+    --gold: 0.72 0.12 75;
+    --green-dark: 0.28 0.08 105;
+    --green-light: 0.48 0.1 105;
+    --olive-dark: 0.22 0.06 105;
+    --olive-mid: 0.38 0.08 105;
+    --cream: 0.97 0.008 80;
+    --chart-1: 0.38 0.08 105;
+    --chart-2: 0.72 0.12 75;
+    --chart-3: 0.48 0.1 105;
+    --chart-4: 0.65 0.1 80;
+    --chart-5: 0.32 0.07 105;
+    --sidebar: 0.24 0.07 105;
+    --sidebar-foreground: 0.95 0.01 80;
+    --sidebar-primary: 0.72 0.12 75;
+    --sidebar-primary-foreground: 0.15 0.04 105;
+    --sidebar-accent: 0.38 0.08 105;
+    --sidebar-accent-foreground: 0.95 0.01 80;
+    --sidebar-border: 0.38 0.08 105;
+    --sidebar-ring: 0.72 0.12 75;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    scroll-behavior: smooth;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+/* =========================================================
+   ISLAMIC PATTERNS
+   ========================================================= */
+
+/* 8-point Islamic star pattern — Quranic illumination style, light bg */
+.islamic-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpolygon points='40,5 47,28 70,28 52,43 59,66 40,52 21,66 28,43 10,28 33,28' fill='none' stroke='%234a5c1a18' stroke-width='0.8'/%3E%3Cpolygon points='40,12 45,30 63,30 49,41 54,59 40,48 26,59 31,41 17,30 35,30' fill='none' stroke='%234a5c1a12' stroke-width='0.5'/%3E%3Ccircle cx='40' cy='40' r='18' fill='none' stroke='%234a5c1a10' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+/* 8-point Islamic star — dark hero, gold strokes */
+.islamic-pattern-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg transform='translate(40,40)'%3E%3Cpolygon points='0,-30 8,-11 28,-11 14,3 19,22 0,11 -19,22 -14,3 -28,-11 -8,-11' fill='none' stroke='%23c9a84c28' stroke-width='0.8'/%3E%3Cpolygon points='0,-22 6,-8 21,-8 10,2 14,16 0,8 -14,16 -10,2 -21,-8 -6,-8' fill='none' stroke='%23c9a84c18' stroke-width='0.5'/%3E%3Ccircle cx='0' cy='0' r='14' fill='none' stroke='%23c9a84c15' stroke-width='0.5'/%3E%3C/g%3E%3Ccircle cx='0' cy='0' r='5' fill='none' stroke='%23c9a84c15' stroke-width='0.5'/%3E%3Ccircle cx='80' cy='0' r='5' fill='none' stroke='%23c9a84c15' stroke-width='0.5'/%3E%3Ccircle cx='0' cy='80' r='5' fill='none' stroke='%23c9a84c15' stroke-width='0.5'/%3E%3Ccircle cx='80' cy='80' r='5' fill='none' stroke='%23c9a84c15' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   QURANIC MANUSCRIPT ORNAMENTS
+   ========================================================= */
+
+/* Shamsa (sun rosette) — 16-point radial star, very slow spin */
+@keyframes shamsa-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.shamsa {
+  display: inline-block;
+  width: 72px;
+  height: 72px;
+  animation: shamsa-spin 60s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.55))
+    drop-shadow(0 0 20px rgba(201, 168, 76, 0.25));
+}
+
+/* Unwan panel — Mughal manuscript header band */
+.unwan-panel {
+  position: relative;
+  display: inline-block;
+  padding: 10px 48px;
+  background: linear-gradient(
+    135deg,
+    rgba(38, 36, 12, 0.82) 0%,
+    rgba(55, 50, 18, 0.72) 40%,
+    rgba(48, 44, 15, 0.78) 60%,
+    rgba(38, 36, 12, 0.82) 100%
+  );
+  border-top: 1.5px solid oklch(0.75 0.14 75 / 0.6);
+  border-bottom: 1.5px solid oklch(0.75 0.14 75 / 0.6);
+  box-shadow:
+    0 0 0 3px rgba(201, 168, 76, 0.12),
+    0 0 0 5px rgba(201, 168, 76, 0.06),
+    inset 0 1px 0 rgba(201, 168, 76, 0.18),
+    inset 0 -1px 0 rgba(201, 168, 76, 0.18),
+    0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Unwan "ear" ends — left clip */
+.unwan-panel::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: calc(100% + 0px);
+  background: inherit;
+  border-top: 1.5px solid oklch(0.75 0.14 75 / 0.6);
+  border-bottom: 1.5px solid oklch(0.75 0.14 75 / 0.6);
+  border-left: 1.5px solid oklch(0.75 0.14 75 / 0.6);
+  border-radius: 50% 0 0 50%;
+  pointer-events: none;
+}
+
+/* Unwan "ear" ends — right clip */
+.unwan-panel::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: calc(100% + 0px);
+  background: inherit;
+  border-top: 1.5px solid oklch(0.75 0.14 75 / 0.6);
+  border-bottom: 1.5px solid oklch(0.75 0.14 75 / 0.6);
+  border-right: 1.5px solid oklch(0.75 0.14 75 / 0.6);
+  border-radius: 0 50% 50% 0;
+  pointer-events: none;
+}
+
+/* Manuscript side bar — vertical marginal ornament */
+.manuscript-side-bar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.manuscript-side-bar.left {
+  left: -36px;
+}
+.manuscript-side-bar.right {
+  right: -36px;
+}
+
+.manuscript-side-bar .node {
+  color: oklch(0.75 0.14 75 / 0.7);
+  font-size: 10px;
+  line-height: 1;
+}
+
+.manuscript-side-bar .line {
+  width: 1px;
+  flex: 1;
+  min-height: 20px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(201, 168, 76, 0.5),
+    transparent
+  );
+}
+
+/* Quranic illumination border — double-line gold frame */
+.quranic-border {
+  position: relative;
+}
+.quranic-border::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  border-radius: 4px;
+  pointer-events: none;
+}
+.quranic-border::after {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+/* Quranic ornamental divider */
+.quranic-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  color: rgba(201, 168, 76, 0.7);
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+}
+.quranic-divider::before,
+.quranic-divider::after {
+  content: "";
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 76, 0.6),
+    transparent
+  );
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+/* Announcement ticker */
+@keyframes ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.ticker-content {
+  animation: ticker 30s linear infinite;
+  white-space: nowrap;
+}
+
+/* WhatsApp pulse */
+@keyframes whatsapp-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+}
+.whatsapp-pulse {
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+/* Gold shimmer on buttons */
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+.gold-shimmer {
+  background-size: 200% auto;
+  animation: gold-shimmer 3s linear infinite;
+}
+
+/* Basmala text shimmer — background-clip technique */
+@keyframes basmala-shimmer {
+  0% {
+    background-position: -300% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+.basmala-shimmer {
+  background: linear-gradient(
+    90deg,
+    oklch(0.68 0.15 65) 0%,
+    oklch(0.75 0.14 75) 25%,
+    oklch(0.88 0.12 85) 50%,
+    oklch(0.75 0.14 75) 75%,
+    oklch(0.68 0.15 65) 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: basmala-shimmer 5s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.6));
+}
+
+/* Basmala glow pulse (fallback / enhancement) */
+@keyframes basmala-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.5), 0 0 40px
+      rgba(201, 168, 76, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(201, 168, 76, 0.8), 0 0 60px
+      rgba(201, 168, 76, 0.35);
+  }
+}
+.basmala-glow {
+  animation: basmala-glow 3s ease-in-out infinite;
+}
+
+/* RTL support */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Gold divider line */
+.gold-divider {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.72 0.12 75),
+    transparent
+  );
+}
+
+/* Section heading underline */
+.section-heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, oklch(0.38 0.08 105), oklch(0.72 0.12 75));
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.93 0.01 80);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.38 0.08 105);
+  border-radius: 4px;
+}
